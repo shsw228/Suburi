@@ -1,0 +1,44 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "[Tappable Link](https://apple.com)" : {
+
+    },
+    "Border" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "境界線"
+          }
+        }
+      }
+    },
+    "If long text comes here -> " : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "もし長いテキストがここに入ってきた場合は ->"
+          }
+        }
+      }
+    },
+    "If long text comes here -> [Tappable Link](https://apple.com)" : {
+
+    },
+    "This is" : {
+
+    },
+    "This is[Tappable Link](https://apple.com)" : {
+
+    },
+    "Values" : {
+
+    },
+    "Variables" : {
+
+    }
+  },
+  "version" : "1.0"
+}
