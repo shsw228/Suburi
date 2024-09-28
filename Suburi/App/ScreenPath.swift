@@ -1,7 +1,7 @@
 //
 //  ScreenPath.swift
 //  Training
-//  
+//
 //  Created by shsw228 on 2024/09/25
 //
 
@@ -10,6 +10,7 @@ import SwiftUI
 enum ScreenPath: Int {
     case home
     case tappableText
+    case scrollPosition
 
     var title: String {
         String(describing: self)
@@ -19,6 +20,7 @@ enum ScreenPath: Int {
         switch self {
         case .home: ContentView()
         case .tappableText: TappableText()
+        case .scrollPosition: ScrollPositions()
         }
     }
 }
