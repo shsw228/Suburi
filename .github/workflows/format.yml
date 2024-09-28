@@ -38,11 +38,11 @@ jobs:
                 if [ "${#SWIFT_FILES[@]}" -eq 0 ]; then
                 echo "No changes to format"
                 else
-                swift format format --in-place --configuration .swift-format.json --parallel "${SWIFT_FILES[@]}" || true
+                swift format format --in-place --configuration .swift-format --parallel "${SWIFT_FILES[@]}" || true
                 fi
             - name: All files to format
               if: inputs.whole_format == true
-              run:   swift format format -r . --in-place --configuration .swift-format.json --parallel || true
+              run:   swift format format -r . --in-place --configuration .swift-format --parallel || true
                 
             - name: Commit and Push changes
               env:
