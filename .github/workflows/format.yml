@@ -6,10 +6,17 @@ on:
     pull_request:
         branches: ["main"]
     workflow_dispatch:
+        inputs:
+            whole_format:
+                type: boolean
+                description: プロジェクト全体をフォーマットするかどうか
+                default: false
+
+            
 env:
     DEVELOPER_DIR: /Applications/Xcodes_16.0.app
 jobs:
-    build:
+    format:
         runs-on: macOS-latest
         steps:
             - name: Show Xcode list #Xcodeのリスト書き出し
@@ -24,6 +31,7 @@ jobs:
                 fetch-depth: ${{ steps.pre_fetch_depth.outputs.depth }} # (PR の commits + 1) 個 checkout する              
               
             - name: Find swift files to format
+              if: github.event.inputs.whole_format == false
               run: |
                 SWIFT_FILES=()
                 while IFS="" read -r file; do SWIFT_FILES+=("${file}"); done < <(git diff --name-only --diff-filter=AMRC ${{ github.event.pull_request.base.sha }} -- "*.swift")
@@ -32,6 +40,10 @@ jobs:
                 else
                 swift format format --in-place --configuration .swift-format.json --parallel "${SWIFT_FILES[@]}" || true
                 fi
+            - name: All files to format
+              if: github.event.inputs.whole_format == true
+              run:   swift format format -r . --in-place --configuration .swift-format.json --parallel || true
+                
             - name: Commit and Push changes
               env:
                 HEAD_REF: ${{ github.head_ref }}
