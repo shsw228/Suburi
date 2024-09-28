@@ -1,7 +1,7 @@
 //
 //  ScrollPositions.swift
 //  Suburi
-//  
+//
 //  Created by shsw228 on 2024/09/28
 //
 
@@ -18,7 +18,7 @@ struct ScrollPositions: View {
     }
 
     var body: some View {
-        VStack{
+        VStack {
             VStack(alignment: .center) {
                 ScrollVerticalPositions(color: $currentVerticalColor)
                 ScrollHorizontalPositions(color: $currentHorizontalColor)
@@ -36,13 +36,13 @@ struct ScrollPositions: View {
 }
 
 struct ScrollVerticalPositions: View {
-    var items:[Color] = [ .green, .blue,.purple,.pink,.yellow,.orange]
+    var items: [Color] = [.green, .blue, .purple, .pink, .yellow, .orange]
     @Binding var color: Color?
     var body: some View {
         VStack {
             ScrollView(.vertical) {
-                VStack(spacing: 0){
-                    ForEach(items, id: \.self){ item in
+                VStack(spacing: 0) {
+                    ForEach(items, id: \.self) { item in
                         RoundedRectangle(cornerRadius: 15)
                             .fill(item)
                             .padding()
@@ -53,18 +53,18 @@ struct ScrollVerticalPositions: View {
             }
             .scrollTargetBehavior(.paging)
             .scrollPosition(id: $color)
-            Text(verbatim:"\(color?.description.capitalized ?? "None")")
+            Text(verbatim: "\(color?.description.capitalized ?? "None")")
         }
     }
 }
 struct ScrollHorizontalPositions: View {
-    var items:[Color] = [ .green, .blue,.purple,.pink,.yellow,.orange]
+    var items: [Color] = [.green, .blue, .purple, .pink, .yellow, .orange]
     @Binding var color: Color?
     var body: some View {
         VStack {
             ScrollView(.horizontal) {
-                HStack(spacing:0) {
-                    ForEach(items, id: \.self){ item in
+                HStack(spacing: 0) {
+                    ForEach(items, id: \.self) { item in
                         RoundedRectangle(cornerRadius: 15)
                             .fill(item)
                             .padding()
@@ -75,7 +75,7 @@ struct ScrollHorizontalPositions: View {
             }
             .scrollTargetBehavior(.paging)
             .scrollPosition(id: $color)
-            Text(verbatim:"\(color?.description.capitalized ?? "None")")
+            Text(verbatim: "\(color?.description.capitalized ?? "None")")
         }
     }
 }

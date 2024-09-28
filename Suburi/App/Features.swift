@@ -1,7 +1,7 @@
 //
 //  Features.swift
 //  Training
-//  
+//
 //  Created by shsw228 on 2024/09/25
 //
 
@@ -20,7 +20,7 @@ struct Features: Identifiable {
 
     // FeatureSectionArray
     static let list = [
-        text, scrollView
+        text, scrollView,
     ]
 }
 extension Features {
