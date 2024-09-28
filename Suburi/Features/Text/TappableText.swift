@@ -1,24 +1,24 @@
 //
 //  TappableText.swift
 //  Training
-//  
+//
 //  Created by shsw228 on 2024/09/25
 //
 
-import SwiftUI
 import HighlightSwift
+import SwiftUI
+
 struct TappableText: View {
     @State var width = 300.0
     @State var maxWidth = 300.0
     @State var isBorderActive = true
-
 
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
 
                 Section("Variables") {
-                    LabeledContent("Width",value: $width.wrappedValue, format: .number)
+                    LabeledContent("Width", value: $width.wrappedValue, format: .number)
                     Slider(value: $width, in: 0...maxWidth)
                         .padding()
                     Toggle(isOn: $isBorderActive) {
@@ -42,18 +42,18 @@ struct TappableText: View {
                     .frame(width: $width.wrappedValue)
                     .border(isBorderActive ? .red : .clear)
                     .multilineTextAlignment(.center)
-                    CodeText("""
-                    HStack {
-                            Text("This is")
-                            Text("[Tappable Link](https://apple.com)")
-                    }
-                    """)
+                    CodeText(
+                        """
+                        HStack {
+                                Text("This is")
+                                Text("[Tappable Link](https://apple.com)")
+                        }
+                        """
+                    )
 
                     .codeTextStyle(.card)
                     .highlightLanguage(.swift)
                     .font(.system(size: 12))
-
-
 
                     VStack(spacing: 10) {
                         Text("This is[Tappable Link](https://apple.com)")
@@ -63,17 +63,17 @@ struct TappableText: View {
                     .frame(width: $width.wrappedValue)
                     .border(isBorderActive ? .red : .clear)
                     .multilineTextAlignment(.center)
-                    CodeText("""
-                        Text("This is[Tappable Link](https://apple.com)")
-                    """)
+                    CodeText(
+                        """
+                            Text("This is[Tappable Link](https://apple.com)")
+                        """
+                    )
 
                     .codeTextStyle(.card)
                     .highlightLanguage(.swift)
                     .font(.system(size: 12))
 
-
                 }
-
 
                 .frame(maxWidth: .infinity)
                 .border(isBorderActive ? .green : .clear)
@@ -85,7 +85,7 @@ struct TappableText: View {
                         .preference(key: SizePreferenceKey.self, value: proxy.size)
                 }
             })
-            .onPreferenceChange(SizePreferenceKey.self){ value in
+            .onPreferenceChange(SizePreferenceKey.self) { value in
                 maxWidth = value.width
             }
         }
