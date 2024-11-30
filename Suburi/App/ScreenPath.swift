@@ -11,7 +11,7 @@ enum ScreenPath: Int {
     case home
     case tappableText
     case scrollPosition
-
+    case accessibility
     var title: String {
         String(describing: self)
     }
@@ -21,6 +21,7 @@ enum ScreenPath: Int {
         case .home: ContentView()
         case .tappableText: TappableText()
         case .scrollPosition: ScrollPositions()
+        case .accessibility:AccessibilityView()
         }
     }
 }

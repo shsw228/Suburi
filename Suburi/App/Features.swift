@@ -17,10 +17,11 @@ struct Features: Identifiable {
     // FeatureSectionList
     static let text = Features(name: "Text", items: [Features(path: .tappableText)])
     static let scrollView = Features(name: "ScrollView", items: [Features(path: .scrollPosition)])
+    static let a11y = Features(name: "Accessibility", items: [Features(path: .accessibility)])
 
     // FeatureSectionArray
     static let list = [
-        text, scrollView,
+        text, scrollView, a11y,
     ]
 }
 extension Features {
